@@ -1,0 +1,502 @@
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow-x: clip; /* clip instead of hidden — doesn't break position:sticky */
+  background-color: transparent; /* transparent so fixed hero shows through overlay */
+}
+
+/* Dynamic positioning wrapper for 3D BlobSphere during cinematic intro */
+.blob-motion-container {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  z-index: 100000;
+  pointer-events: auto;
+}
+
+/* Top Navbar Animated Holder */
+.top-navbar-holder {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.hero-subcontent-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* ─── DYNAMIC FLOATING STICKY NAVBAR WRAPPER ─── */
+.sticky-navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+/* ─── FIXED TOP MAIN HERO REVERSED CURTAIN OVERLAY WRAPPER ─── */
+.fixed-hero-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #090a0f;
+  will-change: transform, opacity, filter;
+}
+
+/* Invisible scroll track spacer enabling standard native page scrolling */
+.hero-scroll-spacer {
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Hero Layout Section */
+.hero-section {
+  width: 100%;
+  max-width: 1360px;
+  min-height: 85vh;
+  padding: 120px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* Metadata Header */
+.hero-metadata {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-bottom: 1px solid rgba(255, 77, 0, 0.15);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.meta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-col.text-right {
+  align-items: flex-end;
+}
+
+.meta-label {
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+}
+
+.meta-value {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+/* Side-by-Side Hero Grid Layout */
+.hero-grid {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 480px;
+  margin-top: 0;
+  z-index: 5;
+}
+
+/* Left Content Column (55% Width) */
+.hero-left {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 5;
+  position: relative;
+}
+
+/* Headline Title */
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: left;
+}
+
+.title-line {
+  display: block;
+  background: linear-gradient(90deg, #ffffff 0%, #9ca3af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Authentic RevenueLab360 Fiery Orange Accent Word "Control." */
+.title-word-accent {
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(90deg, #ff4d00 0%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title .text-thin {
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* Description Paragraph */
+.hero-description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  max-width: 490px;
+  text-align: left;
+}
+
+/* Action Buttons Container */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+/* ─── AUTHENTIC REVENUELAB360 GET STARTED BUTTON (Shimmer + Glass Sweep) ─── */
+.btn-primary {
+  text-decoration: none;
+  background: linear-gradient(
+    90deg,
+    #ffc11c 0%,
+    #f51b00 40%,
+    #a91400 65%,
+    #f51b00 82%,
+    #ffc11c 100%
+  );
+  background-size: 320% 100%;
+  animation: cardBtnShimmer 6s ease-in-out infinite;
+  color: #ffffff;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 25px rgba(255, 193, 28, 0.35);
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  transform: translateX(-130%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.btn-primary:hover::before {
+  transform: translateX(150%);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+  box-shadow: 0 8px 32px rgba(245, 27, 0, 0.55);
+}
+
+@keyframes cardBtnShimmer {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.btn-secondary {
+  text-decoration: none;
+  background: rgba(255, 77, 0, 0.05);
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 77, 0, 0.25);
+  padding: 14px 28px;
+  border-radius: 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 77, 0, 0.12);
+  border-color: rgba(255, 77, 0, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(255, 77, 0, 0.2);
+}
+
+.text-accent-line {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff4d00, transparent);
+  margin-top: 32px;
+  border-radius: 2px;
+  opacity: 0.85;
+}
+
+/* Floating background glow behind sphere on the right */
+.canvas-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.22) 0%, rgba(245, 158, 11, 0.05) 50%, rgba(0,0,0,0) 70%);
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ─── OVERLAY VIDEO SECTION (100% Transparent Start, Pinned Sticky & Perfectly Screen-Bounded) ─── */
+.overlay-video-section {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  height: 350vh; /* Scroll track distance for sticky phase */
+  border: none !important;
+  background: transparent !important; /* 100% TRANSPARENT START */
+}
+
+.overlay-video-sticky-container {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  overflow: hidden; /* Prevents video card from ever breaking top or bottom bounds */
+}
+
+/* Layer 1: Static gradient — transparent top → 30% opaque bottom (always visible) */
+.showreel-section-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(9, 10, 15, 0.3) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Layer 2: Solid dark overlay — fades in with scroll to fully cover */
+.showreel-section-bg {
+  position: absolute;
+  inset: 0;
+  background: #090a0f;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.showreel-video-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Video card: full target size, GPU scale transform handles shrink/expand */
+.showreel-video-box {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 20px);
+  border: 1px solid rgba(255, 77, 0, 0.4);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(255, 77, 0, 0.3);
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  will-change: transform;
+}
+
+.showreel-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.showreel-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+.showreel-controls-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* Minimal calm overlay — very subtle dark tint */
+.showreel-controls-minimal {
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+.showreel-controls-minimal:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Calm, minimal sound button — thin border circle, no intense glow or text */
+.sound-button-minimal {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(15, 12, 30, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35 ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.showreel-controls-minimal:hover .sound-button-minimal {
+  background: rgba(255, 77, 0, 0.25);
+  border-color: rgba(255, 77, 0, 0.6);
+  transform: scale(1.08);
+}
+
+.sound-icon-minimal {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Instant Play / Pause Ripple Feedback Badge on Click Anywhere */
+.video-click-feedback-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 77, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  z-index: 10;
+  pointer-events: none;
+  box-shadow: 0 0 35px rgba(255, 77, 0, 0.7);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding-top: 120px;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-left {
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-title {
+    align-items: center;
+    text-align: center;
+    font-size: 3.2rem;
+  }
+
+  .hero-description {
+    text-align: center;
+    max-width: 550px;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .text-accent-line {
+    margin: 32px auto 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-top: 100px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}

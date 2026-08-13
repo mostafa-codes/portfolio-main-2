@@ -1,0 +1,50 @@
+.text-reveal-h1 {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.reveal-line {
+  display: block;
+  overflow: hidden;
+  line-height: 1.15;
+}
+
+/* Inactive state: elements occupy layout space silently with opacity 0 */
+.inactive-reveal .char-span {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+/* Active state: character reveal animation runs smoothly */
+.active-reveal .char-span {
+  display: inline-block;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  opacity: 0;
+  animation: charReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.025s * var(--index));
+  will-change: transform, opacity;
+}
+
+/* Authentic Fiery Orange Accent Word "Control." */
+.active-reveal .accent-char {
+  background: linear-gradient(90deg, #ff4d00 0%, #ff8c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes charReveal {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

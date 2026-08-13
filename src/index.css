@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #f3e8ff;
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Theme: Unified Shades of Purple / Violet */
+  --bg-color: #000000;
+  --bg-darker: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --text-muted: #f3f4f6;
+  
+  --purple-glow-soft: rgba(139, 92, 246, 0.12);
+  --purple-glow-strong: rgba(168, 85, 247, 0.25);
+  
+  --color-primary: #c084fc;   /* Light Lavender */
+  --color-secondary: #8b5cf6; /* Medium Purple */
+  --color-dark: #6d28d9;      /* Deep Violet */
+  --color-bright: #d8b4fe;    /* Bright Pastel Purple */
+  
+  /* Premium Glassmorphism */
+  --glass-bg: rgba(15, 12, 30, 0.35);
+  --glass-border: rgba(168, 85, 247, 0.15);
+  --glass-border-hover: rgba(168, 85, 247, 0.4);
+  --glass-shadow: rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  height: 100%;
+  background-color: var(--bg-color);
+  overflow-y: auto; /* Scroll strictly managed by HTML */
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-color); /* #000000 */
+  color: var(--text-primary);
+  overflow: visible; /* Prevent body from creating its own scrollbar */
+  position: relative;
+}
+
+
+
+
+body::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Aligned exactly with the bottom edge to prevent scroll height stretching */
+  right: 0;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle at 100% 100%, var(--purple-glow-soft) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(100px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Premium Gradient Text (White and Grey) */
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 75%, #71717a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 40%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Canvas Reset to remove outlines and borders */
+canvas {
+  display: block;
+  outline: none;
+  border: none;
+  background: transparent;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+canvas:focus {
+  outline: none;
+  border: none;
+}
+
+/* Premium Noise Grain Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.035; /* Subtle and organic grain */
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}

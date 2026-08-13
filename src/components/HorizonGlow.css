@@ -1,0 +1,34 @@
+.horizon-glow-container {
+  position: absolute;
+  bottom: 0; /* Aligns flatly with the bottom edge as requested */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 350px; /* Aligned with the height of the SVG */
+  z-index: 1; /* Sits behind the cards so they lay on top of the volumetric glow */
+  pointer-events: none;
+  overflow: hidden; /* CRITICAL: Clips bottom edge, preventing page scroll height stretching */
+}
+
+.horizon-glow-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* Allows blurs to bloom naturally upward */
+}
+
+/* Adjustments for medium screens/tablets */
+@media (max-width: 1024px) {
+  .horizon-glow-container {
+    width: 800px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .horizon-glow-container {
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    height: 160px; /* Scaled down vertical space for mobile screen heights */
+  }
+}

@@ -1,0 +1,36 @@
+.singularity-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%); /* Horizontal centering only, no Y translation to prevent body stretching */
+  width: 800px;
+  height: 200px; /* Locked to exactly 200px (the height of the top half of the black hole) */
+  z-index: 1; /* Sits behind the cards so they lay on top of the accretion disk */
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden; /* CRITICAL: Clips the bottom half of the SVG so it never stretches scroll height */
+}
+
+.singularity-svg {
+  width: 100%;
+  height: 300px; /* Full SVG height, bottom 100px containing reflection is clipped */
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: visible;
+}
+
+/* Responsive adjustment for tablets */
+@media (max-width: 1024px) {
+  .singularity-container {
+    width: 600px;
+    height: 300px;
+  }
+}
+
+/* Hide on mobile screens to preserve page height space */
+@media (max-width: 768px) {
+  .singularity-container {
+    display: none;
+  }
+}

@@ -1,0 +1,286 @@
+/* ─── Services Section Outer Container (Authentic RevenueLab360 Styling) ─── */
+.services-section {
+  position: relative;
+  width: 100%;
+  padding: 120px 24px 100px 24px;
+  background: #000000; /* Pure black background */
+  color: #ffffff;
+  direction: ltr;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Background Ambient Fiery Orange Glows */
+.services-ambient-glow {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(140px);
+  z-index: 0;
+}
+
+.center-glow {
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(255, 77, 0, 0.16) 0%, rgba(245, 158, 11, 0.04) 50%, rgba(0, 0, 0, 0) 70%);
+}
+
+.side-glow {
+  bottom: 10%;
+  right: -5%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(255, 140, 0, 0.12) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.services-container {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+/* ─── Section Header ─── */
+.services-header {
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 22px;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+}
+
+/* Authentic RevenueLab360 Fiery Orange Gradient Title */
+.title-gradient {
+  background: linear-gradient(90deg, #ff4d00 0%, #ff9500 50%, #ffc11c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline;
+}
+
+.services-subtitle {
+  font-size: 1.08rem;
+  color: #9ca3af;
+  line-height: 1.75;
+  max-width: 720px;
+}
+
+/* ─── Metrics Strip (Frosted Glass with Fiery Border) ─── */
+.frosted-noise-strip {
+  position: relative;
+  background: rgba(255, 77, 0, 0.03);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 77, 0, 0.18);
+  border-top: 1px solid rgba(255, 193, 28, 0.35);
+  border-radius: 24px;
+  padding: 40px 44px;
+  margin-bottom: 90px;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.metric-item {
+  text-align: center;
+  border-right: 1px solid rgba(255, 77, 0, 0.15);
+  padding-right: 16px;
+}
+
+.metric-item:last-child {
+  border-right: none;
+}
+
+.metric-value {
+  font-size: 2.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #ff4d00 55%, #ffc11c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  font-size: 0.88rem;
+  color: #9ca3af;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+/* ─── Dual Opposite-Direction Marquee Tickers ─── */
+.integrations-container {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.integrations-title {
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-bottom: 36px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dual-ticker-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.ticker-track-row {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+}
+
+/* Row 1: Right to Left */
+.ticker-row-left {
+  animation: ticker-move-left 32s linear infinite;
+}
+
+/* Row 2: Left to Right (Opposite Direction) */
+.ticker-row-right {
+  animation: ticker-move-right 32s linear infinite;
+}
+
+/* Pause ticker animation on hover */
+.dual-ticker-wrapper:hover .ticker-track-row {
+  animation-play-state: paused;
+}
+
+.ticker-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #f3f4f6;
+  font-size: 0.92rem;
+  font-weight: 600;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.ticker-chip:hover {
+  background: rgba(255, 77, 0, 0.12);
+  border-color: rgba(255, 77, 0, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 77, 0, 0.25);
+}
+
+.ticker-logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.ticker-logo-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.chip-text {
+  letter-spacing: 0.3px;
+}
+
+/* ─── Ticker Animations ─── */
+@keyframes ticker-move-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ticker-move-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ─── Responsive Breakpoints ─── */
+@media (max-width: 1024px) {
+  .services-title {
+    font-size: 2.5rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .metric-item:nth-child(2) {
+    border-right: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 80px 16px 60px 16px;
+  }
+
+  .services-title {
+    font-size: 2.0rem;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .metric-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 77, 0, 0.15);
+    padding-bottom: 16px;
+    padding-right: 0;
+  }
+
+  .metric-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .metric-value {
+    font-size: 2.1rem;
+  }
+}
